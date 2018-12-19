@@ -1,0 +1,11 @@
+##################################
+Information
+##################################
+
+When making scripts make sure to comment what it is that the script does.
+Sort the new script into an appropriate folder. (Make a new one if needed)
+
+The majority of the assests are just temporary.
+
+The background should be a city in my opinion. 
+
