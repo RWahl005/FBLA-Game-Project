@@ -12,45 +12,49 @@ public class CarMove : MonoBehaviour {
     public int movementSpeed;
 
     private MainGame game;
+    private KeyHandler kh;
 
 	// Use this for initialization
 	void Start () {
         movementSpeed = 30;
         game = Camera.main.GetComponent<MainGame>();
+        kh = Camera.main.GetComponent<KeyHandler>();
 
     }
 	
 	// Update is called once per frame
 	void Update () {
+        if (game.isPaused)
+            return;
         transform.position += transform.forward * Time.deltaTime * movementSpeed; // Moves by 20 by default.
         if (game.currentMode == GameMode.Game)
         {
 
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(kh.getKey("speedup")))
             {
-                movementSpeed = 40;
+                movementSpeed = 45;
             }
-            else if (Input.GetKey(KeyCode.S))
+            else if (Input.GetKey(kh.getKey("slowdown")))
             {
-                movementSpeed = 20;
+                movementSpeed = 25;
             }
             else
             {
-                movementSpeed = 30;
+                movementSpeed = 35;
             }
 
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(kh.getKey("moveleft")))
             {
                 transform.position += -transform.right * Time.deltaTime * 10;
             }
-            else if (Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(kh.getKey("moveright")))
             {
                 transform.position += transform.right * Time.deltaTime * 10;
             }
         }
         else if (game.currentMode == GameMode.Question || game.currentMode == GameMode.Results)
         {
-            movementSpeed = 40;
+            movementSpeed = 50; //Speed up the cars again.
         }
     }
 }

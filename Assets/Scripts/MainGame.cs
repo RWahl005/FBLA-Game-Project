@@ -29,15 +29,26 @@ public class MainGame : MonoBehaviour {
     /// </summary>
     public GameMode currentMode;
 
+    /// <summary>
+    /// The number of questions to be added to the system.
+    /// </summary>
+    public int numberOfQuestions;
+
+    /// <summary>
+    /// If the game is paused. (Escape menu)
+    /// </summary>
+    public bool isPaused;
+
 
 	// Use this for initialization
 	void Start () {
         questions = new List<Question>();
         addQuestions();
         SortGameQuestions sq = new SortGameQuestions();
-        gq = new GameQuestions(sq.sort(questions, (questions.Count - 1)));
+        gq = new GameQuestions(sq.sort(questions, (questions.Count - 1))); //TODO: Replace this with numberOfQuestions.
         currentQuestion = -1;
         currentMode = GameMode.Question;
+        isPaused = false;
 	}
 	
 	// Update is called once per frame

@@ -8,6 +8,8 @@ public class AICarMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Camera.main.GetComponent<MainGame>().isPaused)
+            return;
         gameObject.transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 }

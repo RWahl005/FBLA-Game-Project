@@ -26,11 +26,13 @@ public class ResultsManager : MonoBehaviour {
         data = Camera.main.GetComponent<StoreData>();
 	}
 
-    double timeLeft = 12;
+    double timeLeft = 9;
 
     private void Update()
     {
-        if(Camera.main.GetComponent<MainGame>().currentMode == GameMode.Results)
+        if (Camera.main.GetComponent<MainGame>().isPaused)
+            return;
+        if (Camera.main.GetComponent<MainGame>().currentMode == GameMode.Results)
         {
             timeLeft -= Time.deltaTime;
             time.text = System.Math.Truncate(timeLeft) + "";
@@ -40,7 +42,7 @@ public class ResultsManager : MonoBehaviour {
             }
             if (timeLeft < 0)
             {
-                timeLeft = 12;
+                timeLeft = 9;
             }
         }
     }
@@ -57,7 +59,7 @@ public class ResultsManager : MonoBehaviour {
         answer.text = translateNumberToLetter(lastQuestion.getCorrectAnswer());
         urAnswer.text = translateNumberToLetter(data.getLatestQuestion().Item3);
 
-        timeLeft = 12;
+        timeLeft = 9;
         time.color = Color.black;
     }
     public void endResults()

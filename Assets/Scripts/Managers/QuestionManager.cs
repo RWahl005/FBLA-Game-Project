@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class QuestionManager : MonoBehaviour {
 
@@ -25,10 +26,12 @@ public class QuestionManager : MonoBehaviour {
         game = Camera.main.GetComponent<MainGame>();
 	}
 
-    double timeLeft = 12;
+    double timeLeft = 9;
 
     private void Update()
     {
+        if (Camera.main.GetComponent<MainGame>().isPaused)
+            return;
         if (Camera.main.GetComponent<MainGame>().currentMode == GameMode.Question)
         {
             timeLeft -= Time.deltaTime;
@@ -39,15 +42,17 @@ public class QuestionManager : MonoBehaviour {
             }
             if (timeLeft < 0)
             {
-                timeLeft = 12;
+                timeLeft = 9;
             }
         }
 
         if(game.currentQuestion >= game.gq.getActiveQuestions().Count)
         {
             game.currentMode = GameMode.End;
-            Debug.Log("Game Over");
             game.currentQuestion = 0;
+            DataStore.sd = Camera.main.GetComponent<StoreData>();
+            SceneManager.LoadScene("Results", LoadSceneMode.Single);
+            SceneManager.LoadScene("Results", LoadSceneMode.Single);
         }
     }
 
@@ -69,7 +74,7 @@ public class QuestionManager : MonoBehaviour {
         d.text = "D) " + aq.getAnswers()[3];
         question.text = aq.getBaseQuestion().getQuestion();
 
-        timeLeft = 12;
+        timeLeft = 9;
         time.color = Color.black;
     }
 

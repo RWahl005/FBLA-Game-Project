@@ -24,4 +24,20 @@ public class StoreData : MonoBehaviour {
     {
         return data[(data.Count - 1)];
     }
+
+    public int getTotalNumberOfQuestions()
+    {
+        return data.Count;
+    }
+
+    public int getTotalOfCorrectAnswers()
+    {
+        int count = 0;
+        foreach(Tuple<string, ActiveQuestions, int> t in data)
+        {
+            if (t.Item2.getCorrectAnswer() == t.Item3)
+                count++;
+        }
+        return count;
+    }
 }

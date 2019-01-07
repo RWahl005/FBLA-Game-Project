@@ -21,6 +21,8 @@ public class AICarSpawn : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (Camera.main.GetComponent<MainGame>().isPaused)
+            return;
         int num = Random.Range(1, ranRange);
         if (num == 30)
         {
