@@ -58,6 +58,10 @@ public class ResultsManager : MonoBehaviour {
         question.text = lastQuestion.getBaseQuestion().getQuestion();
         answer.text = translateNumberToLetter(lastQuestion.getCorrectAnswer());
         urAnswer.text = translateNumberToLetter(data.getLatestQuestion().Item3);
+        if (translateNumberToLetter(data.getLatestQuestion().Item3) == translateNumberToLetter(lastQuestion.getCorrectAnswer()))
+            urAnswer.color = Color.green;
+        else
+            urAnswer.color = Color.red;
 
         timeLeft = 9;
         time.color = Color.black;

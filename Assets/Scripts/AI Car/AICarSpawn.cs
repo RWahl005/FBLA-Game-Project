@@ -48,7 +48,7 @@ public class AICarSpawn : MonoBehaviour {
             }
            
             obj.transform.rotation = tf.rotation;
-            Destroy(obj, 17); //17 is time in seconds till the car is destroyed.
+            Destroy(obj, 28); //17 is time in seconds till the car is destroyed.
         }
     }
 

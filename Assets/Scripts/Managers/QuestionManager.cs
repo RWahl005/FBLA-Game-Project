@@ -18,6 +18,7 @@ public class QuestionManager : MonoBehaviour {
     public Text d;
     public Text question;
     public Text time;
+    public Text total;
 
     private MainGame game;
 
@@ -63,9 +64,19 @@ public class QuestionManager : MonoBehaviour {
             game.currentMode = GameMode.End;
             return;
         }
-
-        game.currentQuestion += 1;
-        ActiveQuestions aq = game.getCurrentQuestion();
+        else
+        {
+            game.currentQuestion += 1;
+        }
+        ActiveQuestions aq;
+        try
+        {
+            aq = game.getCurrentQuestion();
+        }
+        catch (System.ArgumentOutOfRangeException e) //Fixes that error with the index value being off.
+        {
+            aq = game.gq.getActiveQuestions()[0];
+        }
 
         questionPanel.SetActive(true);
         a.text = "A) " + aq.getAnswers()[0];
@@ -73,6 +84,7 @@ public class QuestionManager : MonoBehaviour {
         c.text = "C) " + aq.getAnswers()[2];
         d.text = "D) " + aq.getAnswers()[3];
         question.text = aq.getBaseQuestion().getQuestion();
+        total.text = (game.currentQuestion + 1) + " / " + game.numberOfQuestions;
 
         timeLeft = 9;
         time.color = Color.black;
