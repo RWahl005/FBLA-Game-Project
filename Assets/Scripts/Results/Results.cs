@@ -14,7 +14,8 @@ public class Results : MonoBehaviour
     void Start()
     {
         sd = DataStore.sd;
-        res.text = sd.getTotalOfCorrectAnswers() + " / " + sd.getTotalNumberOfQuestions();
+        //res.text = sd.getTotalOfCorrectAnswers() + " / " + sd.getTotalNumberOfQuestions();
+        res.text = sd.getTotalCorrect(DataUser.Player) + " / " + sd.getTotalNumberOfQuestions();
     }
 
     public void backToMain()
