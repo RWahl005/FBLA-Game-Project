@@ -31,28 +31,32 @@ public class CarCollide : MonoBehaviour {
             {
                 case "A":
                     if (game.currentMode != GameMode.Game) break;
-                    sd.addQuestion(game.getCurrentQuestion(), 0);
+                    //sd.addQuestion(game.getCurrentQuestion(), 0);
+                    sd.addRound(new DataRound(game.getCurrentQuestion(), new DataPlayer(DataUser.Player, 0, 0, 0), null, null, null)); //TODO: FIX THIS SYSTEM TO SUPPORT SINGLEPLAYER AI
                     rm.startResults();
                     transform.position = teleporter.transform.position;
                     game.currentMode = GameMode.Results;
                     break;
                 case "B":
                     if (game.currentMode != GameMode.Game) break;
-                    sd.addQuestion(game.getCurrentQuestion(), 1);
+                    // sd.addQuestion(game.getCurrentQuestion(), 1);
+                    sd.addRound(new DataRound(game.getCurrentQuestion(), new DataPlayer(DataUser.Player, 0, 0, 1), null, null, null)); //TODO: FIX THIS SYSTEM TO SUPPORT SINGLEPLAYER AI
                     rm.startResults();
                     transform.position = teleporter.transform.position;
                     game.currentMode = GameMode.Results;
                     break;
                 case "C":
                     if (game.currentMode != GameMode.Game) break;
-                    sd.addQuestion(game.getCurrentQuestion(), 2);
+                    //sd.addQuestion(game.getCurrentQuestion(), 2);
+                    sd.addRound(new DataRound(game.getCurrentQuestion(), new DataPlayer(DataUser.Player, 0, 0, 2), null, null, null)); //TODO: FIX THIS SYSTEM TO SUPPORT SINGLEPLAYER AI
                     rm.startResults();
                     transform.position = teleporter.transform.position;
                     game.currentMode = GameMode.Results;
                     break;
                 case "D":
                     if (game.currentMode != GameMode.Game) break;
-                    sd.addQuestion(game.getCurrentQuestion(), 3);
+                    //sd.addQuestion(game.getCurrentQuestion(), 3);
+                    sd.addRound(new DataRound(game.getCurrentQuestion(), new DataPlayer(DataUser.Player, 0, 0, 3), null, null, null)); //TODO: FIX THIS SYSTEM TO SUPPORT SINGLEPLAYER AI
                     rm.startResults();
                     transform.position = teleporter.transform.position;
                     game.currentMode = GameMode.Results;

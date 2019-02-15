@@ -40,14 +40,14 @@ public class MainGame : MonoBehaviour {
     public bool isPaused;
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         SettingsManager sm = new SettingsManager();
         questions = new List<Question>();
         addQuestions();
         SortGameQuestions sq = new SortGameQuestions();
-        if(sm.getSettingFloat("NumberOfQuestions") - 1  > 1)
-            gq = new GameQuestions(sq.sort(questions, ((int) sm.getSettingFloat("NumberOfQuestions")) - 1)); //TODO: (questions.Count - 1)
+        if (sm.getSettingFloat("NumberOfQuestions") - 1 >= 1)
+            gq = new GameQuestions(sq.sort(questions, ((int)sm.getSettingFloat("NumberOfQuestions")) - 1));
         else
         {
             gq = new GameQuestions(sq.sort(questions, 18));

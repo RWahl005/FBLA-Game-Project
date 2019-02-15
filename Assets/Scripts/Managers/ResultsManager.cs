@@ -49,7 +49,7 @@ public class ResultsManager : MonoBehaviour {
 
     public void startResults()
     {
-        ActiveQuestions lastQuestion = data.getLatestQuestion().Item2;
+        ActiveQuestions lastQuestion = data.getLatestRound().getQuestion();
         ResultPanel.SetActive(true);
         a.text = "A) " + lastQuestion.getAnswers()[0];
         b.text = "B) " + lastQuestion.getAnswers()[1];
@@ -57,8 +57,11 @@ public class ResultsManager : MonoBehaviour {
         d.text = "D) " + lastQuestion.getAnswers()[3];
         question.text = lastQuestion.getBaseQuestion().getQuestion();
         answer.text = translateNumberToLetter(lastQuestion.getCorrectAnswer());
-        urAnswer.text = translateNumberToLetter(data.getLatestQuestion().Item3);
-        if (translateNumberToLetter(data.getLatestQuestion().Item3) == translateNumberToLetter(lastQuestion.getCorrectAnswer()))
+
+        int playerAnswer = data.getLatestRound().getDataPlayerByUser(DataUser.Player).getAnswer(); // Added variable as new storedata form is long. (Object with in objects will always be long.)
+
+        urAnswer.text = translateNumberToLetter(playerAnswer);
+        if (translateNumberToLetter(playerAnswer) == translateNumberToLetter(lastQuestion.getCorrectAnswer()))
             urAnswer.color = Color.green;
         else
             urAnswer.color = Color.red;
