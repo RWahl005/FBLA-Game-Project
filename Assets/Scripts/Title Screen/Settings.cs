@@ -60,6 +60,7 @@ public class Settings : MonoBehaviour
 
     public void OnSettings()
     {
+        GameAPI.api.callEvent(new OnSettingsMenuEvent());
         screenPanel.SetActive(true);
         uiPanel.SetActive(false);
     }
