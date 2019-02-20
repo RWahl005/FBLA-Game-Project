@@ -40,6 +40,7 @@ public class MainGame : MonoBehaviour {
     public bool isPaused;
 
 
+
     // Use this for initialization
     void Start() {
         SettingsManager sm = new SettingsManager();
@@ -102,5 +103,10 @@ public class MainGame : MonoBehaviour {
     public ActiveQuestions getCurrentQuestion()
     {
         return gq.getActiveQuestions()[currentQuestion];
+    }
+
+    public void addEventListener(string ev, object obj)
+    {
+
     }
 }
