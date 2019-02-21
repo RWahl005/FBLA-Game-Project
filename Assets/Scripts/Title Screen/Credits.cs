@@ -15,6 +15,7 @@ public class Credits : MonoBehaviour
 
     public void onInstruct()
     {
+        GameAPI.api.callEvent(new OnMenuOpenEvent(Menus.Credits));
         credits.SetActive(true);
         ui.SetActive(false);
     }

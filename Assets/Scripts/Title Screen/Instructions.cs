@@ -15,6 +15,7 @@ public class Instructions : MonoBehaviour
 
     public void onInstruct()
     {
+        GameAPI.api.callEvent(new OnMenuOpenEvent(Menus.Instructions));
         instructions.SetActive(true);
         ui.SetActive(false);
     }

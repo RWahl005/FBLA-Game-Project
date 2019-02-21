@@ -13,6 +13,7 @@ public class Results : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameAPI.api.callEvent(new EndResultScreenEvent());
         sd = DataStore.sd;
         //res.text = sd.getTotalOfCorrectAnswers() + " / " + sd.getTotalNumberOfQuestions();
         res.text = sd.getTotalCorrect(DataUser.Player) + " / " + sd.getTotalNumberOfQuestions();
