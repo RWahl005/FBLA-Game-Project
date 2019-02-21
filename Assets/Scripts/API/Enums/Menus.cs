@@ -2,4 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnSettingsMenuEvent {}
+public enum Menus
+{
+    Settings,
+    Credits,
+    Instructions,
+    PauseMenu
+}
