@@ -24,6 +24,7 @@ public class PauseManager : MonoBehaviour
     {
         if (Input.GetKeyDown(kh.getKey("pause")))
         {
+            GameAPI.api.callEvent(new OnMenuOpenEvent(Menus.PauseMenu));
             game.isPaused = !game.isPaused;
             pauseMenu.SetActive(!pauseMenu.activeSelf);
         }
