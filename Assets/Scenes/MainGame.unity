@@ -2863,11 +2863,6 @@ MonoBehaviour:
   user: 3
   restPosition: {x: 34.48, y: 1.838, z: 48.95848}
   startPosition: {x: 239.55, y: 1.838, z: 4.78}
-  objs:
-  - {fileID: 2004535741}
-  - {fileID: 2134773681}
-  - {fileID: 642582182}
-  - {fileID: 1149781632}
 --- !u!4 &51570033 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4477371398590514, guid: 10a7cf552f818fd45a286a219118b719,
@@ -6896,6 +6891,49 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136538985}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &137449691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 137449692}
+  - component: {fileID: 137449693}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &137449692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137449691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &137449693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137449691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cc10a44775de9c4ab251b1cd4869a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &138203764
 GameObject:
   m_ObjectHideFlags: 0
@@ -24135,11 +24173,6 @@ MonoBehaviour:
   user: 2
   restPosition: {x: 25.78, y: 1.838, z: 48.95848}
   startPosition: {x: 245.32, y: 1.838, z: 4.78}
-  objs:
-  - {fileID: 2004535741}
-  - {fileID: 2134773681}
-  - {fileID: 642582182}
-  - {fileID: 1149781632}
 --- !u!1 &443768010
 GameObject:
   m_ObjectHideFlags: 0
@@ -93489,11 +93522,6 @@ MonoBehaviour:
   user: 1
   restPosition: {x: 29.88, y: 1.838, z: 48.95848}
   startPosition: {x: 258.14, y: 1.838, z: 4.78}
-  objs:
-  - {fileID: 2004535741}
-  - {fileID: 2134773681}
-  - {fileID: 642582182}
-  - {fileID: 1149781632}
 --- !u!1 &1717887635
 GameObject:
   m_ObjectHideFlags: 0
@@ -105300,6 +105328,7 @@ MonoBehaviour:
   currentMode: 0
   numberOfQuestions: 0
   isPaused: 0
+  roundTime: 0
 --- !u!114 &1943829336
 MonoBehaviour:
   m_ObjectHideFlags: 0

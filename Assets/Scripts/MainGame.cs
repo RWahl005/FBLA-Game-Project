@@ -39,6 +39,8 @@ public class MainGame : MonoBehaviour {
     /// </summary>
     public bool isPaused;
 
+    public double roundTime;
+
 
 
     // Use this for initialization
@@ -57,11 +59,11 @@ public class MainGame : MonoBehaviour {
         currentQuestion = -1;
         currentMode = GameMode.Question;
         isPaused = false;
+        roundTime = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
     /// <summary>
     /// New Questions are added here. (25 Questions)
