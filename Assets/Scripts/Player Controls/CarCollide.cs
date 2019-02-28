@@ -30,44 +30,36 @@ public class CarCollide : MonoBehaviour {
             switch (other.gameObject.GetComponent<TriggerZone>().name)
             {
                 case "A":
-                    if (game.currentMode != GameMode.Game) break;
-                    //sd.addQuestion(game.getCurrentQuestion(), 0);
-                    sd.addRound(new DataRound(game.getCurrentQuestion(), new DataPlayer(DataUser.Player, 0, 0, 0), null, null, null)); //TODO: FIX THIS SYSTEM TO SUPPORT SINGLEPLAYER AI
-                    rm.startResults();
+                    if (game.currentMode != GameMode.Game) break;                 
                     transform.position = teleporter.transform.position;
+                    GameAPI.api.callEvent(new OnResultsEvent(game.roundTime, 0));
                     GameAPI.api.callEvent(new CarHitTriggerEvent(DataUser.Player, "A")); //Call The Event Associated with this.
                     game.currentMode = GameMode.Results;
-                    GameAPI.api.callEvent(new OnResultsEvent());
+                    rm.startResults();
                     break;
                 case "B":
                     if (game.currentMode != GameMode.Game) break;
-                    // sd.addQuestion(game.getCurrentQuestion(), 1);
-                    sd.addRound(new DataRound(game.getCurrentQuestion(), new DataPlayer(DataUser.Player, 0, 0, 1), null, null, null)); //TODO: FIX THIS SYSTEM TO SUPPORT SINGLEPLAYER AI
-                    rm.startResults();
                     GameAPI.api.callEvent(new CarHitTriggerEvent(DataUser.Player, "B")); //Call The Event Associated with this.
                     transform.position = teleporter.transform.position;
+                    GameAPI.api.callEvent(new OnResultsEvent(game.roundTime, 1));
                     game.currentMode = GameMode.Results;
-                    GameAPI.api.callEvent(new OnResultsEvent());
+                    rm.startResults();
                     break;
                 case "C":
                     if (game.currentMode != GameMode.Game) break;
-                    //sd.addQuestion(game.getCurrentQuestion(), 2);
-                    sd.addRound(new DataRound(game.getCurrentQuestion(), new DataPlayer(DataUser.Player, 0, 0, 2), null, null, null)); //TODO: FIX THIS SYSTEM TO SUPPORT SINGLEPLAYER AI
-                    rm.startResults();
                     transform.position = teleporter.transform.position;
                     GameAPI.api.callEvent(new CarHitTriggerEvent(DataUser.Player, "C")); //Call The Event Associated with this.
+                    GameAPI.api.callEvent(new OnResultsEvent(game.roundTime, 2));
                     game.currentMode = GameMode.Results;
-                    GameAPI.api.callEvent(new OnResultsEvent());
+                    rm.startResults();
                     break;
                 case "D":
                     if (game.currentMode != GameMode.Game) break;
-                    //sd.addQuestion(game.getCurrentQuestion(), 3);
-                    sd.addRound(new DataRound(game.getCurrentQuestion(), new DataPlayer(DataUser.Player, 0, 0, 3), null, null, null)); //TODO: FIX THIS SYSTEM TO SUPPORT SINGLEPLAYER AI
-                    rm.startResults();
                     transform.position = teleporter.transform.position;
                     GameAPI.api.callEvent(new CarHitTriggerEvent(DataUser.Player, "D")); //Call The Event Associated with this.
-                    GameAPI.api.callEvent(new OnResultsEvent());
+                    GameAPI.api.callEvent(new OnResultsEvent(game.roundTime, 3));
                     game.currentMode = GameMode.Results;
+                    rm.startResults();
                     break;
                 case "Results":
                     if (game.currentMode != GameMode.Results) break;

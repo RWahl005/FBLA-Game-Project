@@ -168,4 +168,9 @@ public class AICarScript : MonoBehaviour
     {
         return smartLevel;
     }
+
+    public int getAnswer()
+    {
+        return locations.IndexOf(selectedLane);
+    }
 }

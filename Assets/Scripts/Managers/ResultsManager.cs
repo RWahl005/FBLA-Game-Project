@@ -19,6 +19,10 @@ public class ResultsManager : MonoBehaviour {
     public Text urAnswer;
     public Text time;
 
+    public Text ai1;
+    public Text ai2;
+    public Text ai3;
+
     private StoreData data;
 
 	// Use this for initialization
@@ -59,6 +63,10 @@ public class ResultsManager : MonoBehaviour {
         answer.text = translateNumberToLetter(lastQuestion.getCorrectAnswer());
 
         int playerAnswer = data.getLatestRound().getDataPlayerByUser(DataUser.Player).getAnswer(); // Added variable as new storedata form is long. (Object with in objects will always be long.)
+
+        ai1.text = translateNumberToLetter(data.getLatestRound().getDataPlayerByUser(DataUser.AICar1).getAnswer());
+        ai2.text = translateNumberToLetter(data.getLatestRound().getDataPlayerByUser(DataUser.AICar2).getAnswer());
+        ai3.text = translateNumberToLetter(data.getLatestRound().getDataPlayerByUser(DataUser.AICar3).getAnswer());
 
         urAnswer.text = translateNumberToLetter(playerAnswer);
         if (translateNumberToLetter(playerAnswer) == translateNumberToLetter(lastQuestion.getCorrectAnswer()))
