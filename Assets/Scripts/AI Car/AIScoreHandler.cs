@@ -21,6 +21,12 @@ public class AIScoreHandler : MonoBehaviour, IEventHandler
     }
 
     [EventHandler]
+    public void OnGameStart(OnRoundPlayEvent e)
+    {
+        dp = new List<DataPlayer>();
+    }
+
+    [EventHandler]
     public void onTriggerEvent(CarHitTriggerEvent e)
     {
         if (e.getTriggerName() == "Results" || e.getTriggerName() == "Questions" || e.getDataUser() == DataUser.Player) return;
@@ -47,6 +53,10 @@ public class AIScoreHandler : MonoBehaviour, IEventHandler
         dp.Add(new DataPlayer(DataUser.Player, (float) e.getTime(), dp.Count + 1, e.getAnswer()));
         fillInRemainingPlayerData(e.getTime());
         sd.addRound(new DataRound(game.getCurrentQuestion(), dp));
+
+        ResultsManager rm = Camera.main.GetComponent<ResultsManager>();
+        game.currentMode = GameMode.Results;
+        rm.startResults();
     }
 
     public List<DataPlayer> getData()

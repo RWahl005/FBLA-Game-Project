@@ -106,9 +106,4 @@ public class MainGame : MonoBehaviour {
     {
         return gq.getActiveQuestions()[currentQuestion];
     }
-
-    public void addEventListener(string ev, object obj)
-    {
-
-    }
 }

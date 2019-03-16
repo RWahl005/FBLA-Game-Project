@@ -34,32 +34,32 @@ public class CarCollide : MonoBehaviour {
                     transform.position = teleporter.transform.position;
                     GameAPI.api.callEvent(new OnResultsEvent(game.roundTime, 0));
                     GameAPI.api.callEvent(new CarHitTriggerEvent(DataUser.Player, "A")); //Call The Event Associated with this.
-                    game.currentMode = GameMode.Results;
-                    rm.startResults();
+                    //game.currentMode = GameMode.Results;
+                    //rm.startResults();
                     break;
                 case "B":
                     if (game.currentMode != GameMode.Game) break;
+                    GameAPI.api.callEvent(new OnResultsEvent(game.roundTime, 1));
                     GameAPI.api.callEvent(new CarHitTriggerEvent(DataUser.Player, "B")); //Call The Event Associated with this.
                     transform.position = teleporter.transform.position;
-                    GameAPI.api.callEvent(new OnResultsEvent(game.roundTime, 1));
-                    game.currentMode = GameMode.Results;
-                    rm.startResults();
+                    //game.currentMode = GameMode.Results;
+                    //rm.startResults();
                     break;
                 case "C":
                     if (game.currentMode != GameMode.Game) break;
                     transform.position = teleporter.transform.position;
-                    GameAPI.api.callEvent(new CarHitTriggerEvent(DataUser.Player, "C")); //Call The Event Associated with this.
                     GameAPI.api.callEvent(new OnResultsEvent(game.roundTime, 2));
-                    game.currentMode = GameMode.Results;
-                    rm.startResults();
+                    GameAPI.api.callEvent(new CarHitTriggerEvent(DataUser.Player, "C")); //Call The Event Associated with this.
+                    //game.currentMode = GameMode.Results;
+                   // rm.startResults();
                     break;
                 case "D":
                     if (game.currentMode != GameMode.Game) break;
                     transform.position = teleporter.transform.position;
-                    GameAPI.api.callEvent(new CarHitTriggerEvent(DataUser.Player, "D")); //Call The Event Associated with this.
                     GameAPI.api.callEvent(new OnResultsEvent(game.roundTime, 3));
-                    game.currentMode = GameMode.Results;
-                    rm.startResults();
+                    GameAPI.api.callEvent(new CarHitTriggerEvent(DataUser.Player, "D")); //Call The Event Associated with this.
+                    //game.currentMode = GameMode.Results;
+                    //rm.startResults();
                     break;
                 case "Results":
                     if (game.currentMode != GameMode.Results) break;
@@ -80,4 +80,6 @@ public class CarCollide : MonoBehaviour {
             }
         }
     }
+
+
 }
