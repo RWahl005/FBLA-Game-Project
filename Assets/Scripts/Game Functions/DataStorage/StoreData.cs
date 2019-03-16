@@ -8,7 +8,7 @@ public class StoreData : MonoBehaviour {
     /// TODO: When the results screen is about to be loaded save this in a non-destoryable object and send it over.
     /// </summary>
 
-    private List<DataRound> dr;
+    public List<DataRound> dr;
 
     void Start()
     {
